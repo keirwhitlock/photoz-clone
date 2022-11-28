@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+photozdb.lock.db
+photozdb.mv.db
+photozdb.trac.db
+photozdb.trace.db

@@ -1,11 +1,17 @@
 package com.jetbrains.keir.photoz.clone.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.sql.In;
 
 import javax.validation.constraints.NotEmpty;
 
+@Table("PHOTOZ")
 public class Photo {
-    private String id;
+
+    @Id
+    private Integer id;
     @NotEmpty
     private String fileName;
 
@@ -16,11 +22,6 @@ public class Photo {
 
     public Photo() {
 
-    }
-
-    public Photo(String id, String fileName) {
-        this.id = id;
-        this.fileName = fileName;
     }
 
     public String getContentType() {
@@ -39,11 +40,11 @@ public class Photo {
         this.data = data;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
