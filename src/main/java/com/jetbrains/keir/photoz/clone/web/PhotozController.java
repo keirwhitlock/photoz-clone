@@ -1,5 +1,7 @@
-package com.jetbrains.keir.photoz.clone;
+package com.jetbrains.keir.photoz.clone.web;
 
+import com.jetbrains.keir.photoz.clone.model.Photo;
+import com.jetbrains.keir.photoz.clone.service.PhotozService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,7 +47,7 @@ public class PhotozController {
 
     @PostMapping("/photoz")
     public Photo create(@RequestPart("data") MultipartFile file) throws IOException {
-        Photo photo = photozservice.put(file.getOriginalFilename(), file.getBytes());
+        Photo photo = photozservice.put(file.getOriginalFilename(), file.getContentType(), file.getBytes());
         return photo;
     }
 }
